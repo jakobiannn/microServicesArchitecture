@@ -1,10 +1,7 @@
 import datetime
-from xmlrpc.server import SimpleXMLRPCServer
-from xmlrpc.server import SimpleXMLRPCRequestHandler
-
-# декоратор для логирования длительности/названия функции
-import time
 import xmlrpc.client
+from xmlrpc.server import SimpleXMLRPCRequestHandler
+from xmlrpc.server import SimpleXMLRPCServer
 
 
 class RequestHandler(SimpleXMLRPCRequestHandler):

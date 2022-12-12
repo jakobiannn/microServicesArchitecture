@@ -18,6 +18,7 @@ server.register_introspection_functions()
 proxy = xmlrpc.client.ServerProxy("http://localhost:8018")
 
 
+# декоратор для логирования длительности/названия функции
 def collect_stat(f):
     def tmp(*args, **kwargs):
         start_time = time.time()
