@@ -1,4 +1,3 @@
-import datetime
 import sqlite3
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 from xmlrpc.server import SimpleXMLRPCServer
@@ -8,7 +7,7 @@ class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
 
-server = SimpleXMLRPCServer(("localhost", 8019),
+server = SimpleXMLRPCServer(("localhost", 8009),
                             requestHandler=RequestHandler,
                             allow_none=False)
 
@@ -38,5 +37,5 @@ def add_to_db(sname, date, func_duration):
 
 server.register_function(add_to_db, 'add_to_db')
 
-print("Listening on port 8019...")
+print("Listening on port 8009...")
 server.serve_forever()
