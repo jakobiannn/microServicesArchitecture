@@ -9,10 +9,12 @@ st.sidebar.header('Ввод данных')
 
 
 def user_input_features():
-    data_length = st.sidebar.slider('Глубина анализа, день', 1, 30, 3)
+    start_date = st.sidebar.date_input('Дата начала')
+    end_date = st.sidebar.date_input('Дата окончания')
     interval_width = st.sidebar.slider('Интервал анализа, час', 1, 24, 24)
     proc_type = st.sidebar.text_input("Тип операции", 'ping')
-    data = {'data_length': data_length,
+    data = {'start_date': start_date,
+            'end_date': end_date,
             'interval_width': interval_width,
             'proc_type': proc_type}
     features = pd.DataFrame(data, index=[0])
