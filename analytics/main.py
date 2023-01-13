@@ -23,10 +23,10 @@ def user_input_features():
 
 df = user_input_features()
 
-count_all = data_frames.load_count_by_type()
+count_all = data_frames.load_count_by_type(df)
 
 st.subheader('Количество вызовов операций по их типу')
-st.bar_chart(count_all, x='TYPE')
+st.bar_chart(count_all, x='TYPE', y='COUNT')
 
 count_by_time = data_frames.load_count_by_time(df)
 st.subheader('Количество вызовов операций с выборкой по времени')
@@ -40,7 +40,7 @@ ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 st.pyplot(fig1)
 
 st.subheader('Диаграмма по времени выполнения операций')
-df_duration = data_frames.log_avg_duration()
+df_duration = data_frames.log_avg_duration(df)
 fig1, ax1 = plt.subplots()
 ax1.pie(df_duration['DURATION'], labels=df_duration['TYPE'], autopct='%1.1f%%',
         shadow=True, startangle=90)
